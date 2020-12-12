@@ -43,9 +43,17 @@ int mcm() {
 
 int quadrato() {
     int x;
-    cout << "inserisci un numero da elevare alla seconda";
+    int r;
+
+    cout << "inserisci un numero\n";
     cin >> x;
-    cout << "Il quadrato di " << x << " è "<< x*x;
+    r = sqrt(x);
+
+    if (x%r==0) {
+        cout << "Il numero è un quadrato perfetto \n";
+    }else {
+        cout << "Il numero non è un quadrato perfetto \n";
+    }
     return 0;
 }
 
@@ -87,9 +95,33 @@ int media() {
     return 0;
 }
 
+int mediaArrotondata() {
+    int x, i;
+    long int somma = 0, r = 0;
+
+    cout << "Inserire il numero di numeri tra cui fare la media, max 1000\n";
+    cin >> x;
+
+    unsigned long long int numeri[1000];
+
+    for (i = 0; i < x; i++) {
+        cout << "inserire numero \n";
+        cin >> numeri[i];
+    }
+
+    for (i = 0; i < x; i++) {
+        somma = somma + numeri[i];
+    }
+    r = somma / x;
+    cout << "La media è " << r;
+
+    return 0;
+}
+
 int MaxMin(){
     int x, i;
-    int temp, j;
+    unsigned long long int temp;
+    int j;
 
     cout << "Inserire il numero di numeri tra cui trovare il minimo e il massimo, max 1000\n";
     cin >> x;
@@ -115,6 +147,26 @@ int MaxMin(){
     return 0;
 }
 
+int nPerfetto() {
+    int n;
+    int m;
+
+    do {
+        cout << "Inserisci un numero maggiore di 0 \n";
+        cin >> n;
+
+    } while (n <= 0);
+
+    for (int i = n -1 ; i>0; i = i - 1) {
+        m = n % i;
+            if (m==0) {
+                cout << " " << i;
+                int Multipli[2];
+            }
+    }
+
+    return 0;
+}
 int main() 
 {
     setlocale(LC_ALL, "italian");
@@ -149,7 +201,7 @@ int main()
         media();
         break;
     case 8:
-        cout << "";
+        nPerfetto();
         break;
     case 9:
         cout << "";
@@ -172,7 +224,7 @@ int main()
         cout << "";
         break;
     case 16:
-        cout << "";
+        mediaArrotondata();
         break;
     }
 }

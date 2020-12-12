@@ -1,5 +1,3 @@
-V 0.4
-
 #include <iostream>
 
 using namespace std;

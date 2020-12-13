@@ -167,6 +167,25 @@ int nPerfetto() {
 
     return 0;
 }
+
+
+int nPrimo() {
+    int x;
+    int d = 0;
+    int r, i;
+    cin >> x;
+    x = x--;
+    for (i = x; i < x; i++) {
+        if (d < 2) {
+            r = d;
+                if (r == 0) {
+                    d++;
+                }
+        }
+    }
+
+}
+
 int main() 
 {
     setlocale(LC_ALL, "italian");

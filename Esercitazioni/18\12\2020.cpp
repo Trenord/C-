@@ -169,26 +169,52 @@ int nPerfetto() {
 }
 
 
-int nPrimo() {
-    int x;
-    int d = 0;
-    int r, i;
-    cin >> x;
-    x = x--;
-    for (i = x; i < x; i++) {
-        if (d < 2) {
-            r = d;
-                if (r == 0) {
-                    d++;
-                }
-        }
-    }
+int nPrimo(int x) {
+    bool V;
+    int div = 0;
+    int r;
+    int i = x/2;
 
+    for (i; i > 0; i--) {
+       
+        if (div == 2) {
+            V = false;
+            return V;
+        }
+
+
+            r = x % i;
+            if (r == 0) {
+                div++;
+            }
+        
+    }
+    if (div == 1) {
+        V = true;
+        return V;
+    }
+}
+
+int nPrimominore() {
+    int x, v;
+    cout << "Inserire un numero";
+    cin >> x;
+    for (int i = x; i > 1; i--) {
+        
+        v = nPrimo(i);
+        if (v == true) {
+            cout << i << "\n";
+        }
+
+    }
+    return 0;
 }
 
 int main() 
 {
     setlocale(LC_ALL, "italian");
+
+    bool np;
 
 	int caso;
     cout <<"inserisci che programma vuoi usare \n";
@@ -223,10 +249,20 @@ int main()
         nPerfetto();
         break;
     case 9:
-        cout << "";
+        int n;
+        
+        cout<<"inserire un numero";
+        cin >> n;
+        np = nPrimo(n);
+        if (np == true) {
+            cout << "Il numero è primo";
+        }
+        else {
+            cout << "Il numero non è primo";
+        }
         break;
     case 10:
-        cout << "";
+        nPrimominore();
         break;
     case 11:
         cout << "";

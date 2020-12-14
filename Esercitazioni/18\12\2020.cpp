@@ -188,9 +188,9 @@ int nPrimo(int x) {
     bool V;
     int div = 0;
     int r;
-    int i = x/2;
+    
 
-    for (i; i > 0; i--) {
+    for (int i=1; i < x/2; i++) {
        
         if (div == 2) {
             V = false;

@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cmath>
+#include <time.h>
 using namespace std;
 
 
@@ -41,15 +42,10 @@ int mcdn() {
     return 0;
 }
 
-int mcm() {
-    int x, y;
-    cout << "Inserire il primo numero";
-    cin >> x;
-    cout << "Inserire il secondo numero";
-    cin >> y;
-    cout << "Mcm tra i due numeri è " << (x*y)/mcd(x, y);
-    
-    return 0;
+int mcm(int x, int y) {
+    int r;
+    r = (x * y) / mcd(x, y);
+    return r;
 }
 
 int quadrato() {
@@ -218,14 +214,17 @@ int nPrimominore() {
     int x, v;
     cout << "Inserire un numero";
     cin >> x;
+    
     for (int i = x; i > 1; i--) {
-        
+        clock_t tStart = clock();
         v = nPrimo(i);
         if (v == true) {
             cout << i << "\n";
+            printf("Time taken: %.2fs\n", (double)(clock() - tStart) / CLOCKS_PER_SEC);
         }
 
     }
+    
     return 0;
 }
 
@@ -243,8 +242,19 @@ int nAmicabili() {
 
 int sommaFratti() {
 
-    int x, y;
-    cout << "inserisci la prima frazione";
+    int a,b,c,d, r1, r2;
+    cout << "inserisci il nominatore della prima frazione";
+    cin >> a;
+    cout << "inserisci il denominatore della prima frazione";
+    cin >> b;
+    cout << "inserisci il nominatore della seconda frazione";
+    cin >> c;
+    cout << "inserisci il denominatore della seconda frazione";
+    cin >> d;
+    int dmcm = mcm(b, d);
+    r1 = (dmcm / b)*a;
+    r2 = (dmcm / d)*c;
+    cout << "Il risultato della somma è " << r1 + r2 << "/" << dmcm << "\n   " << r1 + r2 << "\n" << "_______\n\n   " << dmcm;
     return 0;
 }
 
@@ -255,7 +265,7 @@ int grafica() {
     cout << "|3.  Quadrato prefetto                       |\n";
     cout << "|4.  Fattoriale                              |\n";
     cout << "|5.  Fibonacci                               |\n";
-    cout << "|6.  Fibonacci                               |\n";
+    cout << "|6.  Numeri amicabili                        |\n";
     cout << "|7.  Max e min n numeri                      |\n";
     cout << "|8.  Media aritmetica n numeri               |\n";
     cout << "|9.  Numero perfetto                         |\n";
@@ -282,7 +292,12 @@ int main()
     cin >> caso;
     switch (caso) {
     case 1:
-        mcm();
+        int a, b;
+        cout << "Inserire il primo numero";
+        cin >> a;
+        cout << "Inserire il secondo numero";
+        cin >> b;
+        cout << "Mcm tra i due numeri è " << mcm(a,b);
         break;
     case 2:
         int x, y;

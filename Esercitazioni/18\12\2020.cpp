@@ -161,6 +161,8 @@ int MaxMin(){
 int nPerfetto() {
     int n;
     int m;
+    int x = 0;
+    int Multipli[1000];
 
     do {
         cout << "Inserisci un numero maggiore di 0 \n";
@@ -168,14 +170,20 @@ int nPerfetto() {
 
     } while (n <= 0);
 
-    for (int i = n -1 ; i>0; i = i - 1) {
+    for (int i = n -1 ; i>0; i--) {
         m = n % i;
             if (m==0) {
-                cout << " " << i;
-                int Multipli[2];
+                Multipli[i] = i;
+                
+                x=x+Multipli[i];
             }
     }
-
+    if (x == n) {
+        cout << n << " è un numero perfetto";
+    }
+    else {
+        cout << n << " non è un numero perfetto";
+    }
     return 0;
 }
 

@@ -1,5 +1,5 @@
 #include <iostream>
-
+#include <cmath>
 using namespace std;
 
 
@@ -241,21 +241,50 @@ int nAmicabili() {
     return 0;
 }
 
+int sommaFratti() {
+
+    int x, y;
+    cout << "inserisci la prima frazione";
+    return 0;
+}
+
+int grafica() {
+    cout << "|--------------------------------------------|\n";
+    cout << "|1.  Mcm due numeri                          |\n";
+    cout << "|2.  Mcd due numeri                          |\n";
+    cout << "|3.  Quadrato prefetto                       |\n";
+    cout << "|4.  Fattoriale                              |\n";
+    cout << "|5.  Fibonacci                               |\n";
+    cout << "|6.  Fibonacci                               |\n";
+    cout << "|7.  Max e min n numeri                      |\n";
+    cout << "|8.  Media aritmetica n numeri               |\n";
+    cout << "|9.  Numero perfetto                         |\n";
+    cout << "|10. Numero primo                            |\n";
+    cout << "|11. Primi minori di N                       |\n";
+    cout << "|12. Mcm tre numeri                          |\n";
+    cout << "|13. Mcd tre numeri                          |\n";
+    cout << "|14. Mcd n numeri                            |\n";
+    cout << "|15. Mcm n numeri                            |\n";
+    cout << "|16. Calcolo somma tra due numeri fratti     |\n";
+    cout << "|17. Media aritmetica di n numeri arrotondata|\n";
+    cout << "|                                            |\n";
+    cout << "|     Inserisci che programma vuoi usare     |\n";
+    cout << "|--------------------------------------------|\n";
+    return 1;
+}
+
 int main() 
 {
     setlocale(LC_ALL, "italian");
-
     bool np;
-
-	int caso;
-    cout <<"Inserisci che programma vuoi usare \n";
+    int caso;
+    grafica();
     cin >> caso;
-
     switch (caso) {
-    case 0:
+    case 1:
         mcm();
         break;
-    case 1:
+    case 2:
         int x, y;
         cout << "Inserire il primo numero";
         cin >> x;
@@ -263,28 +292,28 @@ int main()
         cin >> y;
         cout<<"Mcd tra i due numeri è "<< mcd(x, y);
         break;
-    case 2:
+    case 3:
         quadrato();
         break;
-    case 3:
-        fattoriale();
-        break;
     case 4:
-        cout << "";
+        fattoriale();
         break;
     case 5:
         cout << "";
         break;
     case 6:
-        MaxMin();
+        cout << "";
         break;
     case 7:
-        media();
+        MaxMin();
         break;
     case 8:
-        nPerfetto();
+        media();
         break;
     case 9:
+        nPerfetto();
+        break;
+    case 10:
         int n;
         
         cout<<"inserire un numero";
@@ -297,24 +326,24 @@ int main()
             cout << "Il numero non è primo";
         }
         break;
-    case 10:
+    case 11:
         nPrimominore();
         break;
-    case 11:
-        cout << "";
     case 12:
         cout << "";
-        break;
     case 13:
         cout << "";
         break;
     case 14:
         cout << "";
-        break; 
+        break;
     case 15:
         cout << "";
-        break;
+        break; 
     case 16:
+        sommaFratti();
+        break;
+    case 17:
         mediaArrotondata();
         break;
     }

@@ -3,43 +3,54 @@
 using namespace std;
 
 
-/*
-int ChiediNumeri() {
-    int i, nV;
-    int numeri[100];
-    cout << "Quanti numeri vuoi inserire?";
-    cin >> nV;
-    cout << "Inserisci numero\n";
-    for (i = 0; i < nV; i++) {
-        cin >> numeri[i];
-    }
-    return 0;
-}
-
-int mcd() {
-    int a, b;
-    cout << "Dammi il primo numero: ";
-    cin >> a;
-    cout << "Dammi il secondo numero: ";
-    cin >> b;
-
-    int x = a;
-    int y = b;
-
-    // Il MCD e` calcolato usando l'algoritmo Euclideo
+int mcd(int x, int y) {
     while (y > 0) {
         int r = x % y;
         x = y;
         y = r;
     }
+    return x;
+}
 
-    cout << "Il M.C.D. fra " << a << " e " << b << " e` " << x << endl;
+int mcdn() {
+    int ar[1000];
+    int x, i;
+    int y = 0;
+    int a, b;
+    cout << "Inserire il numero di numeri tra cui fare mcd,\n";
+    cin >> x;
+
+    for (i = 0; i < x; i++) {
+        cout << "inserire numero \n";
+        cin >> ar[i];
+    }
+
+    if (x % 2 == 0) {
+        i = x / 2;
+    }
+    else {
+        i = (x / 2)+1;
+    }
+
+    for (i; i < 0;i--) {
+        int r = mcd(ar[i], ar[i-1]);
+        
+    }
+
+    cout << "Il M.C.D.  è " << x;
     return 0;
 }
 
 int mcm() {
-
-}*/
+    int x, y;
+    cout << "Inserire il primo numero";
+    cin >> x;
+    cout << "Inserire il secondo numero";
+    cin >> y;
+    cout << "Mcm tra i due numeri è " << (x*y)/mcd(x, y);
+    
+    return 0;
+}
 
 int quadrato() {
     int x;
@@ -210,6 +221,18 @@ int nPrimominore() {
     return 0;
 }
 
+int fibonacci() {
+    int x, r;
+    cout << "Inserisci un numero";
+    cin >> x;
+
+    return 0;
+}
+
+int nAmicabili() {
+    return 0;
+}
+
 int main() 
 {
     setlocale(LC_ALL, "italian");
@@ -217,15 +240,20 @@ int main()
     bool np;
 
 	int caso;
-    cout <<"inserisci che programma vuoi usare \n";
+    cout <<"Inserisci che programma vuoi usare \n";
     cin >> caso;
 
     switch (caso) {
     case 0:
-       // mcm();
+        mcm();
         break;
     case 1:
-        cout << "";
+        int x, y;
+        cout << "Inserire il primo numero";
+        cin >> x;
+        cout << "Inserire il secondo numero";
+        cin >> y;
+        cout<<"Mcd tra i due numeri è "<< mcd(x, y);
         break;
     case 2:
         quadrato();

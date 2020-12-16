@@ -1,8 +1,7 @@
 #include <iostream>
 #include <cmath>
-#include <time.h>
-using namespace std;
 
+using namespace std;
 
 int mcd(int x, int y) {
     while (y > 0) {
@@ -13,11 +12,36 @@ int mcd(int x, int y) {
     return x;
 }
 
+int mcm(int x, int y) {
+    int r;
+    r = (x * y) / mcd(x, y);
+    return r;
+}
+
+int mcmn() {
+    int ar[1000];
+    int x, i;
+    cout << "Inserire il numero di numeri tra cui fare mcm,\n";
+    cin >> x;
+
+    for (i = 0; i < x; i++) {
+        cout << "inserire numero \n";
+        cin >> ar[i];
+    }
+    i = x - 1;
+    int r = mcm(ar[i], ar[i - 1]);
+    i = i--;
+    for (i; i > 0; i--) {
+        r = mcm(ar[i], r);
+    }
+
+    cout << "M.C.M. è " << r;
+    return 0;
+}
+
 int mcdn() {
     int ar[1000];
     int x, i;
-    int y = 0;
-    int a, b;
     cout << "Inserire il numero di numeri tra cui fare mcd,\n";
     cin >> x;
 
@@ -25,27 +49,45 @@ int mcdn() {
         cout << "inserire numero \n";
         cin >> ar[i];
     }
-
-    if (x % 2 == 0) {
-        i = x / 2;
-    }
-    else {
-        i = (x / 2)+1;
-    }
-
-    for (i; i < 0;i--) {
-        int r = mcd(ar[i], ar[i-1]);
-        
+    i = x-1;
+    int r= mcd(ar[i], ar[i - 1]);
+    i=i--;
+    for (i; i > 0; i--) {
+        r = mcd(ar[i], r);
     }
 
-    cout << "Il M.C.D.  è " << x;
+    cout << "M.C.D. è " << r;
     return 0;
 }
 
-int mcm(int x, int y) {
-    int r;
-    r = (x * y) / mcd(x, y);
-    return r;
+int mcd3n(){
+    int a, b, c, r;
+    cout << "inserisci il primo numero";
+    cin >> a;
+    cout << "inserisci il secondo numero";
+    cin >> b;
+    cout << "inserisci il terzo numero";
+    cin >> c;
+    r = mcd(a, b);
+    r = mcd(r, c);
+    cout << "M.C.D. è " << r;
+    return 0;
+}
+
+int mcm3n() {
+    int a, b, c, r;
+    cout << "inserisci il primo numero";
+    cin >> a;
+    cout << "inserisci il secondo numero";
+    cin >> b;
+    cout << "inserisci il terzo numero";
+    cin >> c;
+    r = mcm(a, b);
+    cout << "|";
+    r = mcm(r, c);
+    cout << "|";
+    cout << "M.C.M. è " << r;
+    return 0;
 }
 
 int quadrato() {
@@ -216,11 +258,11 @@ int nPrimominore() {
     cin >> x;
     
     for (int i = x; i > 1; i--) {
-        clock_t tStart = clock();
+        
         v = nPrimo(i);
         if (v == true) {
             cout << i << "\n";
-            printf("Time taken: %.2fs\n", (double)(clock() - tStart) / CLOCKS_PER_SEC);
+            
         }
 
     }
@@ -282,6 +324,7 @@ int grafica() {
     cout << "|--------------------------------------------|\n";
     return 1;
 }
+
 
 int main() 
 {
@@ -345,15 +388,15 @@ int main()
         nPrimominore();
         break;
     case 12:
-        cout << "";
+        mcm3n();
     case 13:
-        cout << "";
+        mcd3n();
         break;
     case 14:
-        cout << "";
+        mcdn();
         break;
     case 15:
-        cout << "";
+        mcmn();
         break; 
     case 16:
         sommaFratti();

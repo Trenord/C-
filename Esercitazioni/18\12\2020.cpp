@@ -34,7 +34,6 @@ int mcmn() {
     for (i; i > 0; i--) {
         r = mcm(ar[i], r);
     }
-
     cout << "M.C.M. è " << r;
     return 0;
 }
@@ -55,7 +54,6 @@ int mcdn() {
     for (i; i > 0; i--) {
         r = mcd(ar[i], r);
     }
-
     cout << "M.C.D. è " << r;
     return 0;
 }
@@ -83,9 +81,7 @@ int mcm3n() {
     cout << "inserisci il terzo numero";
     cin >> c;
     r = mcm(a, b);
-    cout << "|";
     r = mcm(r, c);
-    cout << "|";
     cout << "M.C.M. è " << r;
     return 0;
 }
@@ -389,6 +385,7 @@ int main()
         break;
     case 12:
         mcm3n();
+        break;
     case 13:
         mcd3n();
         break;

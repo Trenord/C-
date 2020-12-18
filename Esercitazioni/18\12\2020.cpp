@@ -1,4 +1,4 @@
-//0.9
+//0.9.2
 #include <iostream>
 #include <cmath>
 
@@ -278,10 +278,17 @@ int nPrimominore() {
 }
 
 int fibonacci() {
-    int x, r;
-    cout << "Inserisci un numero";
+    int x, n1=1,n2=1,n3=0;
+    cout << "Fino a che numero vuoi arrivare?";
     cin >> x;
-
+    cout << "1 1 ";
+    
+    while (n1<x) {
+        n3 = n2 + n1;
+        n1 = n2;
+        n2 = n3;
+        cout << n3<<" ";
+    }
     return 0;
 }
 
@@ -367,7 +374,7 @@ int main()
         cout << "Fattoriale di "<< R << " è " << fattorialeR(R);
         break;
     case 5:
-        cout << "";
+        fibonacci();
         break;
     case 6:
         cout << "";

@@ -1,4 +1,4 @@
-//0.9.2
+//0.9.8
 #include <iostream>
 #include <cmath>
 
@@ -179,7 +179,7 @@ int MaxMin() {
     unsigned long long int temp;
     int j;
 
-    cout << "Inserire il numero di numeri tra cui trovare il minimo e il massimo, max 1000\n";
+    cout << "Inserire il numero di numeri tra cui trovare il minimo e il massimo \n";
     cin >> x;
 
     unsigned long long int numeri[1000];
@@ -224,10 +224,10 @@ int nPerfetto() {
         }
     }
     if (x == n) {
-        cout << n << " è un numero perfetto";
+        cout << n << " è un numero perfetto ";
     }
     else {
-        cout << n << " non è un numero perfetto";
+        cout << n << " non è un numero perfetto ";
     }
     return 0;
 }
@@ -261,7 +261,7 @@ int nPrimo(int x) {
 
 int nPrimominore() {
     int x, v;
-    cout << "Inserire un numero";
+    cout << "Inserire un numero ";
     cin >> x;
 
     for (int i = x; i > 1; i--) {
@@ -279,7 +279,7 @@ int nPrimominore() {
 
 int fibonacci() {
     int x, n1=1,n2=1,n3=0;
-    cout << "Fino a che numero vuoi arrivare?";
+    cout << "Fino a che numero vuoi arrivare? ";
     cin >> x;
     cout << "1 1 ";
     
@@ -293,6 +293,33 @@ int fibonacci() {
 }
 
 int nAmicabili() {
+    int m, n, n2;
+    int Divisori = 0, Divisori2 = 0;
+    cout << "\ninserisci primo numero ";
+    cin >> n;
+    cout << "inserisci secondo numero ";
+    cin >> n2;
+
+    for (int i = n - 1; i > 0; i--) {
+        m = n % i;
+        if (m == 0) {
+            Divisori = Divisori + i;
+        }
+    }
+    for (int i = n2 - 1; i > 0; i--) {
+        m = n2 % i;
+        if (m == 0) {
+            Divisori2 = Divisori2 + i;
+        }
+    }
+    if (Divisori2 == n && Divisori == n2) {
+        cout << n << " e "<< n2 <<" sono numeri amicabili";
+    }
+    else
+    {
+        cout << n << " e " << n2 << " non sono numeri amicabili";
+    }
+
     return 0;
 }
 
@@ -377,7 +404,7 @@ int main()
         fibonacci();
         break;
     case 6:
-        cout << "";
+        nAmicabili();
         break;
     case 7:
         MaxMin();

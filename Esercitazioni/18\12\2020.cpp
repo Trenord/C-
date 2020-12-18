@@ -49,9 +49,9 @@ int mcdn() {
         cout << "inserire numero \n";
         cin >> ar[i];
     }
-    i = x-1;
-    int r= mcd(ar[i], ar[i - 1]);
-    i=i--;
+    i = x - 1;
+    int r = mcd(ar[i], ar[i - 1]);
+    i = i--;
     for (i; i > 0; i--) {
         r = mcd(ar[i], r);
     }
@@ -59,7 +59,7 @@ int mcdn() {
     return 0;
 }
 
-int mcd3n(){
+int mcd3n() {
     int a, b, c, r;
     cout << "inserisci il primo numero";
     cin >> a;
@@ -95,27 +95,37 @@ int quadrato() {
     cin >> x;
     r = sqrt(x);
 
-    if (x%r==0) {
+    if (x % r == 0) {
         cout << "Il numero è un quadrato perfetto \n";
-    }else {
+    }
+    else {
         cout << "Il numero non è un quadrato perfetto \n";
     }
     return 0;
 }
-
+/*
 int fattoriale() {
     float x;
-    cout << "Inserisci un numero , max 34"<<"\n";
+    cout << "Inserisci un numero , max 34" << "\n";
     cin >> x;
-    float fat =1;
+    float fat = 1;
     cout << "Fattoriale di " << x << " è \n";
-    for (int i = x; i>0; i=i-1) {
+    for (int i = x; i > 0; i = i - 1) {
         fat = x * fat;
         x = x - 1;
     }
     cout << fat << "\n";
-    
+
     return 0;
+}*/
+
+float fattorialeR(float x) {
+    if (x >= 2) {
+        return x * fattorialeR(x - 1);
+    }
+    else {
+        return 1;
+    }
 }
 
 int media() {
@@ -164,7 +174,7 @@ int mediaArrotondata() {
     return 0;
 }
 
-int MaxMin(){
+int MaxMin() {
     int x, i;
     unsigned long long int temp;
     int j;
@@ -205,13 +215,13 @@ int nPerfetto() {
 
     } while (n <= 0);
 
-    for (int i = n -1 ; i>0; i--) {
+    for (int i = n - 1; i > 0; i--) {
         m = n % i;
-            if (m==0) {
-                Multipli[i] = i;
-                
-                x=x+Multipli[i];
-            }
+        if (m == 0) {
+            Multipli[i] = i;
+
+            x = x + Multipli[i];
+        }
     }
     if (x == n) {
         cout << n << " è un numero perfetto";
@@ -227,21 +237,21 @@ int nPrimo(int x) {
     bool V;
     int div = 0;
     int r;
-    
 
-    for (int i=1; i < x/2; i++) {
-       
+
+    for (int i = 1; i < x / 2; i++) {
+
         if (div == 2) {
             V = false;
             return V;
         }
 
 
-            r = x % i;
-            if (r == 0) {
-                div++;
-            }
-        
+        r = x % i;
+        if (r == 0) {
+            div++;
+        }
+
     }
     if (div == 1) {
         V = true;
@@ -253,17 +263,17 @@ int nPrimominore() {
     int x, v;
     cout << "Inserire un numero";
     cin >> x;
-    
+
     for (int i = x; i > 1; i--) {
-        
+
         v = nPrimo(i);
         if (v == true) {
             cout << i << "\n";
-            
+
         }
 
     }
-    
+
     return 0;
 }
 
@@ -281,7 +291,7 @@ int nAmicabili() {
 
 int sommaFratti() {
 
-    int a,b,c,d, r1, r2;
+    int a, b, c, d, r1, r2;
     cout << "inserisci il nominatore della prima frazione";
     cin >> a;
     cout << "inserisci il denominatore della prima frazione";
@@ -291,8 +301,8 @@ int sommaFratti() {
     cout << "inserisci il denominatore della seconda frazione";
     cin >> d;
     int dmcm = mcm(b, d);
-    r1 = (dmcm / b)*a;
-    r2 = (dmcm / d)*c;
+    r1 = (dmcm / b) * a;
+    r2 = (dmcm / d) * c;
     cout << "Il risultato della somma è " << r1 + r2 << "/" << dmcm << "\n   " << r1 + r2 << "\n" << "_______\n\n   " << dmcm;
     return 0;
 }
@@ -323,7 +333,7 @@ int grafica() {
 }
 
 
-int main() 
+int main()
 {
     setlocale(LC_ALL, "italian");
     bool np;
@@ -337,7 +347,7 @@ int main()
         cin >> a;
         cout << "Inserire il secondo numero";
         cin >> b;
-        cout << "Mcm tra i due numeri è " << mcm(a,b);
+        cout << "Mcm tra i due numeri è " << mcm(a, b);
         break;
     case 2:
         int x, y;
@@ -345,13 +355,16 @@ int main()
         cin >> x;
         cout << "Inserire il secondo numero";
         cin >> y;
-        cout<<"Mcd tra i due numeri è "<< mcd(x, y);
+        cout << "Mcd tra i due numeri è " << mcd(x, y);
         break;
     case 3:
         quadrato();
         break;
     case 4:
-        fattoriale();
+        float R;
+        cout << "Inserisci un numero , max 34" << "\n";
+        cin >> R;
+        cout << "Fattoriale di "<< R << " è " << fattorialeR(R);
         break;
     case 5:
         cout << "";
@@ -370,8 +383,8 @@ int main()
         break;
     case 10:
         int n;
-        
-        cout<<"inserire un numero";
+
+        cout << "inserire un numero";
         cin >> n;
         np = nPrimo(n);
         if (np == true) {
@@ -395,7 +408,7 @@ int main()
         break;
     case 15:
         mcmn();
-        break; 
+        break;
     case 16:
         sommaFratti();
         break;

@@ -1,0 +1,76 @@
+#include <iostream>
+#include <cstdlib>
+#include <time.h>
+
+using namespace std;
+
+int pari[500],dispari[500];
+
+int ordinap(int n){
+	int i,j,temp;
+	for (i = 0; i < n; i++) {
+        for (j = i + 1; j < 10; j++)
+        {
+            if (pari[j] < pari[i]) {
+                temp = pari[i];
+                pari[i] = pari[j];
+                pari[j] = temp;
+            }
+        }
+    }	
+}
+
+int ordinad(int n){
+	int i,j,temp;
+	for (i = 0; i < n; i++) {
+        for (j = i + 1; j < 10; j++)
+        {
+            if (dispari[j] < dispari[i]) {
+                temp = dispari[i];
+                dispari[i] = dispari[j];
+                dispari[j] = temp;
+            }
+        }
+    }	
+}
+
+int main (){
+	srand(time(0));
+	int n,m,i=0,npari=0,ndispari=0;
+	int a[500];
+	
+	cout<<"Inserisci il numero di volte ";
+	cin >> n;
+	
+	for (i=0;i<n;i++){
+		a[i]=rand()%101;
+		cout<<a[i]<<endl;
+	}
+	
+	for (int ii=0;ii<n;ii++){
+		//cout<<m<<endl;
+		m=a[ii]%2;
+		
+		if (m==0){
+			pari[npari]=a[ii];
+			npari++;
+		}
+		
+		if (m!=0){
+			dispari[ndispari]=a[ii];
+			
+			ndispari++;
+		}
+
+	}
+	ordinap(npari);
+	ordinad(ndispari);
+	cout<<endl<<"I pari sono"<<endl;
+	for (int iii=0;iii<npari;iii++){
+		cout <<pari[iii]<<endl;
+	}
+	cout<<endl<<"I dispari sono"<<endl;
+	for (int iii=0;iii<ndispari;iii++){
+		cout <<dispari[iii]<<endl;
+	}
+}

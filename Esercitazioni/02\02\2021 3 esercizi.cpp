@@ -38,7 +38,7 @@ int main (){
 		case 1:
 			random();
 			break;
-		case2:
+		case 2:
 			
 			break;
 		case 3:

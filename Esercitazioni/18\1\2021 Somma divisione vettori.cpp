@@ -20,7 +20,7 @@ int ordinaa(int x, int a[]) {//ordina un array passato in argomento
 	return *a;//return array ordinato
 }
 
-int min(int a[], int x) {//passando un array restituisce il float minimo di quell'array
+int min(int a[], int x) {//passando un array restituisce il minimo di quell'array
 	float min = 0, temp = 0;
 	for (int i = 0; i < x; i++) {
 		if (temp == 0) {
@@ -36,7 +36,7 @@ int min(int a[], int x) {//passando un array restituisce il float minimo di quel
 	return min;
 }
 
-int max(int a[], int x) {//passando un array restituisce il float massimo di quell'array
+int max(int a[], int x) {//passando un array restituisce il massimo di quell'array
 	float max = 0;
 	for (int i = 0; i < x; i++) {
 		if (max < a[i]) {
@@ -53,12 +53,12 @@ int ndispari = 0;
 int pariF(int c[], int d[], int n, int pari[]) {
 	int m = 0;
 	for (int ii = 0; ii < n; ii++) {//divide i numeri pari dagli array e li mette nel'array dei pari 
-		m = c[ii] % 2;//m = fmod(s1[ii],2);
+		m = c[ii] % 2;
 		if (m == 0) {
 			pari[npari] = c[ii];
 			npari++;// conta il numero di pari
 		}
-		m = d[ii] % 2;//m = fmod(s2[ii], 2); 
+		m = d[ii] % 2;
 		if (m == 0) {
 			pari[npari] = d[ii];
 			npari++;
@@ -70,7 +70,7 @@ int pariF(int c[], int d[], int n, int pari[]) {
 int dispariF(int a[], int b[], int n, int dispari[]) {
 	int m = 0;
 	for (int ii = 0; ii < n; ii++) {
-		m = a[ii] % 2;//m = fmod(s1[ii], 2);
+		m = a[ii] % 2;
 		if (m != 0) {
 			dispari[ndispari] = a[ii];
 			ndispari++;
@@ -82,7 +82,7 @@ int dispariF(int a[], int b[], int n, int dispari[]) {
 		}
 
 	}
-	return *dispari;//Restituisce dispari[] con dentro tutti i numeri dispari degli array s1, s2, d1, d2 e conta quanti sono i totale
+	return *dispari;//Restituisce dispari[] con dentro tutti i numeri dispari degli array
 }
 
 int main() {
@@ -100,7 +100,7 @@ int main() {
 		cin >> scelta;
 	} while (scelta < 0 or scelta>1);
 
-	if (scelta == 0) {
+	if (scelta == 0) {//se l'utente sceglie array random 
 		for (int i = 0; i < n; i++) {//random di due array
 			a[i] = rand();
 			b[i] = rand();
@@ -161,7 +161,7 @@ int main() {
 
 	}
 	else {
-
+//se l'utente sceglie numeri non casuali
 		for (int i = 0; i < n; i++) {
 			cout << "Inserire elemento " << i << " del primo array ";//chiede di inserire i numeri di due array 
 			cin >> aa[i];

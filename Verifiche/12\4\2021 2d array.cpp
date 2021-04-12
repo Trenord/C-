@@ -22,7 +22,7 @@ int minmax(int a[][5]){
 			}
 		}
 	}
-	cout<<endl<<"Il minimo è "<<min<<endl<<"Il massimo è "<<max;
+	cout<<endl<<"Il minimo Ã¨ "<<min<<endl<<"Il massimo Ã¨ "<<max;
 }
 
 int diag1(int a[][5]){

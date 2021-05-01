@@ -48,13 +48,13 @@ int main (){
 		 
 		for (int i=0;i<pl;i++){
 			if (parola[i]==l){
-				utente[i*2]=l;//sostituisce nella stringa con i trattini la lettera dell'utente, solo se è presente nella parola originale
-				vt++;// conta quante volte il char inserito dall'utente è presente nella parola 
+				utente[i*2]=l;//sostituisce nella stringa con i trattini la lettera dell'utente, solo se Ã¨ presente nella parola originale
+				vt++;// conta quante volte il char inserito dall'utente Ã¨ presente nella parola 
 				check++;
 			}
 		}
 		if (vt==0){
-			tentativi--;//se il char dell'utente non è nella parola originale toglie un tentativo
+			tentativi--;//se il char dell'utente non Ã¨ nella parola originale toglie un tentativo
 		}
 		
 		if (check==pl){  //se ha trovato tutte le lettere ha vinto  (check parte da 0 e ogni lettera trovata viene incrementato di uno)
